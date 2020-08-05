@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from forms import inputForm
-from flask_bootstrap import Bootstrap
 import sqlite3
 import base64
 import webbrowser
 
 app = Flask(__name__)
-Bootstrap(app)
-
 app.config['SECRET_KEY'] = '123456789'
 
 
@@ -56,10 +53,6 @@ def display_all():
     lst = zip(newList, urlList)
     return render_template("displayAll.html", lst=lst, the_title="Display all students")
 
-
-@app.route('/haha')
-def xixi():
-    return render_template("new.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
